@@ -47,7 +47,6 @@ public class ReadJsonFile {
 //        }
 
         File path = new File("C:\\Users\\melik\\IntellijIdeaProjects\\MyMavenProject\\src\\main\\resources\\File.txt");
-//        Path path = Paths.get("C:\\Users\\melik\\IntellijIdeaProjects\\MyMavenProject\\src\\main\\resources\\File.txt");
         Scanner scanner = new Scanner(path);
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
