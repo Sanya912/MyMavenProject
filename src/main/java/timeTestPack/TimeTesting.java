@@ -1,13 +1,20 @@
 package timeTestPack;
 
+import net.bytebuddy.asm.Advice;
 import org.testng.annotations.Test;
 import sun.security.jca.GetInstance;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
-import java.util.Arrays;
-import java.util.List;
+import java.time.temporal.TemporalField;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class TimeTesting {
     @Test
@@ -65,6 +72,95 @@ void testPeriod(){
         Period annually = Period.ofDays(10);
         System.out.println(annually);
     }
+
+    @Test
+    void epoSec(){
+
+
+    }
+
+    @Test
+    void zoneTest(){
+        LocalDate localDate = LocalDate.of(2019, Month.NOVEMBER, 17);
+        LocalTime localTime = LocalTime.of(10,19);
+        ZoneId zoneId = ZoneId.of("US/Eastern");
+        ZonedDateTime zonedDateTime = ZonedDateTime.of(localDate, localTime, zoneId);
+        System.out.println(zonedDateTime);
+    }
+
+    @Test
+    void stringTest(){
+        String s4 = "1" +2+3;
+        String s5= 1+2+"3";
+        System.out.println(s4);
+        System.out.println(s5);
+    }
+
+    @Test
+    void testInstance(){
+        double price = 48;
+        NumberFormat us = NumberFormat.getCurrencyInstance();
+        System.out.println(us.format(price));
+    }
+
+    @Test
+    void transferToDollars(){
+        NumberFormat en = NumberFormat.getCurrencyInstance(Locale.CANADA);
+        NumberFormat ger = NumberFormat.getCurrencyInstance(Locale.GERMAN);
+        NumberFormat fer = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        System.out.println(fer.format(20.20));
+    }
+
+    @Test
+    void parseTest() throws ParseException {
+        NumberFormat en = NumberFormat.getInstance(Locale.US);
+        NumberFormat fr = NumberFormat.getInstance(Locale.FRANCE);
+        String s = "40.45";
+        System.out.println(en.parse(s)); // 40.45
+        System.out.println(fr.parse(s)); // 40
+    }
+
+    @Test
+    void parseBucks() throws ParseException {
+        String sum = "$9543.56";
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
+        System.out.println(numberFormat.parse(sum));
+    }
+
+    @Test
+    void dateTimeFormat(){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+        LocalDateTime localDateTime = LocalDateTime.of(2015, 11, 10, 11,04,34);
+        DayOfWeek dayOfWeek = localDateTime.getDayOfWeek();
+        LocalTime localTime = LocalTime.of(11,07);
+        System.out.println(dayOfWeek);
+        System.out.println(localDateTime.format(dateTimeFormatter));
+    }
+
+    @Test
+    void dateTimeFormatTest(){
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("hh::mm");
+        DateTimeFormatter dd = DateTimeFormatter.ofPattern("dd::MM::yyyy");
+        LocalTime localTime = LocalTime.of(12,13);
+        LocalDate localDate = LocalDate.of(2015, 10, 12);
+        System.out.println(localTime.format(f));
+        System.out.println(localDate);
+        System.out.println(localDate.format(dd));
+    }
+
+    @Test
+    void TESTexam(){
+        new Locale("hi");
+    }
+
+    @Test
+    void loopWhileTest() throws InterruptedException {
+        Random random = new Random();
+        IntStream ints = random.ints(1, 0, 10);
+                ints.forEachOrdered(System.out::println);
+
+    }
+
 
 
 }

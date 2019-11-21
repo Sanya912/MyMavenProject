@@ -2,11 +2,14 @@ package jsonFiles;
 
 import com.google.gson.JsonObject;
 import com.jayway.jsonpath.JsonPath;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
 
+import javax.annotation.Resource;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,6 +48,7 @@ public class ReadJsonFile {
 //        while (scanner.hasNext()){
 //            System.out.println(scanner.nextLine());
 //        }
+
 
         File path = new File("C:\\Users\\melik\\IntellijIdeaProjects\\MyMavenProject\\src\\main\\resources\\File.txt");
         Scanner scanner = new Scanner(path);
