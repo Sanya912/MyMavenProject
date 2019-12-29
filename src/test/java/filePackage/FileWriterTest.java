@@ -60,4 +60,32 @@ public class FileWriterTest {
 
 
 
+
+
+
+
+    @Test
+    void outTest() throws IOException {
+try(PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter("D:\\Test\\4.txt")))){
+    printWriter.print("Hi again");
+    }
+try(FileInputStream fileInputStream = new FileInputStream(new File("D:\\Test\\4.txt"))){
+    int te = 0;
+    while((te= fileInputStream.read()) != -1){
+        System.out.print((char)te);
+    }
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
     }

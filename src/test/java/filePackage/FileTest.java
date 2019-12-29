@@ -1,5 +1,7 @@
 package filePackage;
 
+import javafx.application.Application;
+import org.apache.commons.io.IOUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -14,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -44,9 +47,20 @@ public class FileTest {
 
     @Test
     void readerTest() throws IOException {
-        File file = new File("C:\\Users\\melik\\IntellijIdeaProjects\\MyMavenProject\\src\\main\\resources\\File.txt");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-        System.out.println(bufferedReader.readLine());
+        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("File.txt");
+        System.out.println(IOUtils.toString(resourceAsStream, StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void readStream() throws IOException {
+        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("File.txt");
+        System.out.println(IOUtils.toString(resourceAsStream, StandardCharsets.UTF_8));
+
+    }
+
+    @Test
+    void app(){
+
     }
 
     @Test
@@ -92,6 +106,17 @@ public class FileTest {
     @Test
     void excelTest() throws IOException, InvalidFormatException {
       readExcelFile();
+    }
+
+    @Test
+    void testPath() throws IOException {
+        File file = new File(getClass().getClassLoader().getResource("File.txt").getFile());
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String test;
+        while ((test = bufferedReader.readLine()) != null) {
+            System.out.println(test);
+        }
     }
 
     List<String> tesrBuffer() {
