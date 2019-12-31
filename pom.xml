@@ -109,7 +109,13 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.17</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.eclipse.hudson/hudson-war -->
+<!--        <dependency>
+            <groupId>org.eclipse.hudson</groupId>
+            <artifactId>hudson-war</artifactId>
+            <version>3.3.0-M0</version>
+            <scope>test</scope>
+        </dependency>-->
 
     </dependencies>
 
