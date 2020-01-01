@@ -14,5 +14,11 @@ pipeline {
                 echo 'Testing stuff...'
             }
         }
+        stage('Run job Test3') {
+            agent any
+            steps {
+                build job: 'Test3'
+            }
+        }
     }
 }
