@@ -17,7 +17,7 @@ pipeline {
         stage('Run job Test3') {
             agent any
             steps {
-                build job: 'Test3'
+                build 'Test3'
             }
         }
     }
