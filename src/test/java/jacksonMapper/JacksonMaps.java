@@ -1,7 +1,5 @@
 package jacksonMapper;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -13,12 +11,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class JacksonMaps {
-ObjectMapper objectMapper = new ObjectMapper();
-    JsonNode jsonNode;
-
-Stream<String> stre() throws IOException {
-    return Files.lines(Paths.get("C:\\Users\\melik\\OneDrive\\Desktop\\Test\\jsonTest"));
-}
+//ObjectMapper objectMapper = new ObjectMapper();
+//    JsonNode jsonNode;
+//
+//Stream<String> stre() throws IOException {
+//    return Files.lines(Paths.get("C:\\Users\\melik\\OneDrive\\Desktop\\Test\\jsonTest"));
+//}
 //    Stream<String > metObjj() throws IOException {
 //
 //       return  stre().map(s -> {
@@ -31,9 +29,9 @@ Stream<String> stre() throws IOException {
 //        }).collect(Collectors.toList());
 //    }
 
-    @Test
-    void mapper() throws IOException {
-        stre().forEach(System.out::println);
-
-    }
+//    @Test
+//    void mapper() throws IOException {
+//        stre().forEach(System.out::println);
+//
+//    }
 }
