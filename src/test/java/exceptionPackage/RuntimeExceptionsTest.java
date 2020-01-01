@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class RuntimeExceptionsTest implements AutoCloseable{
 
-@Test
+//@Test
     void tryCatchTest(){
     try {
         int i = 8/0;
@@ -16,14 +16,14 @@ public class RuntimeExceptionsTest implements AutoCloseable{
 }
 
 
-@Test
+//@Test
     void closeTest() throws Exception {
     try(RuntimeExceptionsTest ob = new RuntimeExceptionsTest()){ //need implements
 
     }
 }
 
-@Test
+//@Test
 void compileTestRunTime () throws Exception {
 test();
 }
