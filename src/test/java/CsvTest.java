@@ -17,4 +17,12 @@ public class CsvTest {
             fileWriter.flush();
         }
     }
+
+    @Test
+    void wordPrintTest() throws IOException {
+        try(FileWriter fileWriter = new FileWriter("D:\\myTest.txt")){
+            fileWriter.append("Hi \n");
+            fileWriter.append("I am here");
+        }
+    }
 }
