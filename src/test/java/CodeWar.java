@@ -6,6 +6,7 @@ public class CodeWar {
     @Test
     void coverForLetters(){
         System.out.println(maskify("45877755"));
+        System.out.println(maskify1("45877755"));
     }
 
     public static String maskify(String str){
@@ -22,5 +23,14 @@ public class CodeWar {
         } else {
             return str;
         }
+    }
+
+    public static String maskify1(String str){
+
+        char[] mmm = str.toCharArray();
+        for (int i=0; i<mmm.length -4; i++){
+            mmm[i] = '#';
+        }
+        return String.valueOf(mmm);
     }
 }
